@@ -35,6 +35,7 @@ func main(){
 		fmt.Println("	add")
 		fmt.Println("	list")
 		fmt.Println("	done")
+		fmt.Println("	erase")
 		os.Exit(1)
 	}
 	dataPath, err := initDataFile()
