@@ -30,7 +30,11 @@ func initDataFile()(string, error){
 }
 func main(){
 	if(len(os.Args) < 2){
-		fmt.Println("引数が足りません")
+		fmt.Println("コマンドを指定してください。")
+		fmt.Println("コマンド一覧:")
+		fmt.Println("	add")
+		fmt.Println("	list")
+		fmt.Println("	done")
 		os.Exit(1)
 	}
 	dataPath, err := initDataFile()
@@ -56,7 +60,7 @@ func main(){
 			}
 			for _, item := range todos {
 				if(item.Title == os.Args[2] && !item.Done){
-					fmt.Printf("未完了のタスク %s はすでに存在します\n", os.Args[2])
+					fmt.Printf("未完了のタスク %s はすでに存在します。\n", os.Args[2])
 					os.Exit(1)
 				}
 			}
