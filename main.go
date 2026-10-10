@@ -54,6 +54,12 @@ func main(){
 				fmt.Printf("データの解析に失敗しました:%v\n", err)
 				os.Exit(1)
 			}
+			for _, item := range todos {
+				if(item.Title == os.Args[2] && !item.Done){
+					fmt.Printf("未完了のタスク %s はすでに存在します\n", os.Args[2])
+					os.Exit(1)
+				}
+			}
 			newTodo := TodoUnit{
 				Title: os.Args[2],
 				Desc: os.Args[3],
@@ -112,7 +118,7 @@ func main(){
 			}
 			found := false
 			for i := 0; i < len(todos); i++ {
-				if(todos[i].Title == os.Args[2]){
+				if(todos[i].Title == os.Args[2] && todos[i].Done == false){
 					todos[i].Done = true
 					found = true
 					break
